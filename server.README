@@ -1,0 +1,18 @@
+middle where kia ha ;
+app.post ('/sdasd',(req,res,next)=>{
+
+});
+ya jo req ,resporance ha or jo next ha ya middle where ha 
+its depend hama is ko kaha is tamal kar ta ha yani 
+mana req ki server ko and then resporance kia server ko 
+that is the example of middle function
+image.png
+
+you an also rejuster the middle where in the specified order
+like theis
+image.png
+
+you can also created the that type of method in the middle where
+image.png
+
+image.png

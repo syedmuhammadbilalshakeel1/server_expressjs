@@ -5,7 +5,12 @@ const PORT = 3001;
 // here we applay some middle where function that perform some task example is logging some time
 app.use(express.json());
 // that is the encoded data that is come from the data postman
-app.use(express.urlencoded());
+app.use(express.urlencoded())
+// here we applay the middle where in the use function
+app.use((req, res, next) => {
+    console.log(`${req.method}:${req.url}`);
+    next();
+})
 
 
 // that is the port were the server is runing on this
