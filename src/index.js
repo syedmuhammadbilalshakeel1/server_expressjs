@@ -5,13 +5,12 @@ const PORT = 3001;
 // here we applay some middle where function that perform some task example is logging some time
 app.use(express.json());
 // that is the encoded data that is come from the data postman
-app.use(express.urlencoded())
+app.use(express.urlencoded());
 // here we applay the middle where in the use function
 app.use((req, res, next) => {
-    console.log(`${req.method}:${req.url}`);
-    next();
-})
-
+  console.log(`${req.method}:${req.url}`);
+  next();
+});
 
 // that is the port were the server is runing on this
 app.listen(PORT, () =>
@@ -30,17 +29,26 @@ const userData = [
     email: "bilal@gmail.com",
   },
 ];
-app.get('/data', (req, resporance) => {
+app.get("/data", (req, resporance) => {
   resporance.send(userData);
 });
 
+// that is the route parametre we can sepratre what data we need from it
+app.get("/data/:name", (req, res) => {
+  // that we target the data name of it
+  // console.log(req.params.name);
+  // res.send(req.params.name);
+  // res.send(200);
+
+  const { name } = req.params;
+  const userDetail = userData.find((g) => g.name === name);
+  res.send(userDetail);
+});
 
 // that is the post request from the post to get data server
 // request.body is that there all data is given
-app.post('/data', (req, res) => {
-    
-    console.log(req.body);
-    userData.push(req.body);
-    res.send(201);
-
-})
+app.post("/data", (req, res) => {
+  console.log(req.body);
+  userData.push(req.body);
+  res.send(201);
+});
