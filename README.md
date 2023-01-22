@@ -1,4 +1,5 @@
 # server_expressjs
+# get post setup middlewhere and route parameter
 ## middle where kia ha 
 
 
